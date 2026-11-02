@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ArrowDown, Check, Edit3, Sparkles } from 'lucide-react';
+import React from 'react';
+import { ArrowDown, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface HeroProps {
@@ -8,14 +8,6 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onLearnMoreClick, onHireClick }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState({
-    name: PERSONAL_INFO.name,
-    role: 'Designer & Developer',
-    kicker: 'GET EVERY SINGLE SOLUTIONS.',
-    bio: 'Mengembangkan solusi digital yang mengawinkan estetika visual minimalis, tipografi bernilai seni, serta performa kode web responsif berstandar industri modern.'
-  });
-
   return (
     <section className="relative min-h-[92vh] flex items-center pt-24 pb-16 overflow-hidden bg-[#F8F9FA] dark:bg-[#0B192C] transition-colors">
       {/* Subtle Background Accent & Wavy Vector Lines from Reference */}
@@ -68,75 +60,22 @@ export const Hero: React.FC<HeroProps> = ({ onLearnMoreClick, onHireClick }) => 
           {/* Left Column: Typography & CTAs (Matches reference image) */}
           <div className="lg:col-span-7 flex flex-col justify-center">
             
-            {/* Quick customization helper pill (quiet, functional) */}
-            <div className="flex items-center gap-2 mb-4">
-              <button
-                onClick={() => setIsEditing(!isEditing)}
-                className="inline-flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-[#FF4B3E] dark:hover:text-[#FF4B3E] transition-colors py-1 cursor-pointer"
-                title="Kustomisasi nama dan detail bio Anda"
-              >
-                <Edit3 size={13} />
-                <span>{isEditing ? 'Selesai Edit' : 'Sesuaikan Profil Anda'}</span>
-              </button>
-            </div>
-
             {/* Kicker from reference: GET EVERY SINGLE SOLUTIONS */}
-            {isEditing ? (
-              <input
-                type="text"
-                value={profile.kicker}
-                onChange={(e) => setProfile({ ...profile, kicker: e.target.value })}
-                className="text-xs sm:text-sm font-bold tracking-widest text-[#FF4B3E] uppercase mb-4 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-1.5 rounded-md max-w-md"
-              />
-            ) : (
-              <p className="text-xs sm:text-sm font-bold tracking-widest text-[#FF4B3E] uppercase mb-3 sm:mb-4 select-none">
-                {profile.kicker}
-              </p>
-            )}
+            <p className="text-xs sm:text-sm font-bold tracking-widest text-[#FF4B3E] uppercase mb-3 sm:mb-4 select-none">
+              {PERSONAL_INFO.tagline}
+            </p>
 
             {/* Headline with Playfair Display / Editorial Serif font */}
-            {isEditing ? (
-              <div className="space-y-2 mb-6">
-                <div>
-                  <label className="text-xs text-slate-400 block mb-1">Peran / Profesi:</label>
-                  <input
-                    type="text"
-                    value={profile.role}
-                    onChange={(e) => setProfile({ ...profile, role: e.target.value })}
-                    className="text-2xl font-bold font-editorial text-[#0B192C] dark:text-white bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-1 rounded-md w-full max-w-md"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs text-slate-400 block mb-1">Nama Lengkap:</label>
-                  <input
-                    type="text"
-                    value={profile.name}
-                    onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-                    className="text-2xl font-bold font-editorial text-[#0B192C] dark:text-white bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 px-3 py-1 rounded-md w-full max-w-md"
-                  />
-                </div>
-              </div>
-            ) : (
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold text-[#0F1D38] dark:text-white font-editorial leading-[1.12] tracking-tight mb-5 sm:mb-6 text-balance">
-                I’m {profile.role.split(' ')[0]}
-                <br />
-                <span className="text-[#0B192C] dark:text-slate-100">{profile.name}</span>
-              </h1>
-            )}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] font-bold text-[#0F1D38] dark:text-white font-editorial leading-[1.12] tracking-tight mb-5 sm:mb-6 text-balance">
+              I’m Designer
+              <br />
+              <span className="text-[#0B192C] dark:text-slate-100">{PERSONAL_INFO.name}</span>
+            </h1>
 
             {/* Paragraph / Bio */}
-            {isEditing ? (
-              <textarea
-                rows={3}
-                value={profile.bio}
-                onChange={(e) => setProfile({ ...profile, bio: e.target.value })}
-                className="text-sm sm:text-base text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 p-3 rounded-md max-w-xl mb-8"
-              />
-            ) : (
-              <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8 font-normal">
-                {profile.bio}
-              </p>
-            )}
+            <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8 font-normal">
+              {PERSONAL_INFO.heroBio}
+            </p>
 
             {/* Action Buttons (Matches reference image style) */}
             <div className="flex flex-wrap items-center gap-4">
