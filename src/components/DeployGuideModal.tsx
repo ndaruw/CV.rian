@@ -38,9 +38,9 @@ export const DeployGuideModal: React.FC<DeployGuideModalProps> = ({ isOpen, onCl
 
   const githubPagesSteps = [
     {
-      title: '1. Inisialisasi Git & Hubungkan ke Repository GitHub',
-      desc: 'Buka terminal di folder proyek ini lalu jalankan:',
-      command: `git init\ngit add .\ngit commit -m "feat: website portofolio Riandaru"\ngit branch -M main\ngit remote add origin https://github.com/USERNAME_ANDA/portofolio-pribadi.git\ngit push -u origin main`
+      title: '1. Push Perbaikan Terbaru ke GitHub',
+      desc: 'Buka terminal di folder proyek Anda dan jalankan perintah berikut:',
+      command: `git add .\ngit commit -m "fix: update workflow, lockfile, dan dependensi"\ngit push`
     },
     {
       title: '2. Opsi A (Otomatis): Aktifkan GitHub Actions di Repositori',
