@@ -166,8 +166,19 @@ export const DeployGuideModal: React.FC<DeployGuideModalProps> = ({ isOpen, onCl
           
           {activeTab === 'vercel' && (
             <div className="space-y-6">
-              <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-900/60 text-xs text-blue-900 dark:text-blue-200 leading-relaxed">
-                <strong>Mengapa Vercel?</strong> Vercel adalah platform hosting tercepat untuk aplikasi React / Vite. Setiap kali Anda melakukan <code>git push</code> ke GitHub, website Anda akan otomatis ter-update secara langsung dengan domain gratis <code>.vercel.app</code> dan sertifikat SSL HTTPS gratis.
+              <div className="p-4 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200/80 dark:border-blue-900/60 text-xs text-blue-900 dark:text-blue-200 leading-relaxed flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div>
+                  <strong>Deploy Otomatis ke Vercel:</strong> Hubungkan langsung repositori GitHub Anda ke Vercel tanpa perlu konfigurasi manual apapun.
+                </div>
+                <a
+                  href="https://vercel.com/new/clone?repository-url=https://github.com/ndaruw/CV.rian"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 text-xs font-semibold text-white bg-black hover:bg-slate-800 rounded-lg shrink-0 inline-flex items-center gap-1.5 shadow-sm"
+                >
+                  <span>1-Click Deploy ke Vercel</span>
+                  <ExternalLink size={13} />
+                </a>
               </div>
 
               {vercelSteps.map((step, idx) => (

@@ -49,6 +49,8 @@ Portofolio pribadi modern, responsif, dan berkarakter minimalis yang dibangun de
 
 ### Opsi 1: Deploy ke Vercel (Sangat Direkomendasikan - Gratis & Otomatis)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ndaruw/CV.rian)
+
 1. **Inisialisasi Git dan Push ke GitHub:**
    ```bash
    git init
